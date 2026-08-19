@@ -58,6 +58,10 @@ let package = Package(
             targets: ["StartAppYandexMobileAdsAdapters"]
         ),
         .library(
+            name: "BigoADSYandexMobileAdsAdaptersWrapper",
+            targets: ["BigoADSYandexMobileAdsAdapters"]
+        ),
+        .library(
             name: "YandexMobileAdsMediation",
             targets: [
                 "YandexMobileAdsMediation",
@@ -72,6 +76,7 @@ let package = Package(
                 "ChartboostYandexMobileAdsAdaptersWrapper",
                 "InMobiYandexMobileAdsAdaptersWrapper",
                 "StartAppYandexMobileAdsAdaptersWrapper",
+                "BigoADSYandexMobileAdsAdaptersWrapper",
             ]
         )
     ],
@@ -181,6 +186,14 @@ let package = Package(
                 .product(name: "YandexMobileAds", package: "yandex-ads-sdk-ios"),
             ]
         ),
+        .target(
+            name: "BigoADSYandexMobileAdsAdaptersWrapper",
+            dependencies: [
+                .target(name: "BigoADS"),
+                .target(name: "BigoADSYandexMobileAdsAdapters"),
+                .product(name: "YandexMobileAds", package: "yandex-ads-sdk-ios"),
+            ]
+        ),
         .binaryTarget(
             name: "YandexMobileAdsAdMobAdapters",
             url: "https://ads-mobile-sdk.s3.yandex.net/Yandex/YandexMobileAdsAdMobAdapters/8.2.0.0/spm/296b22ec-89e6-41ed-a1d5-8c7fa14b824c.zip",
@@ -270,6 +283,16 @@ let package = Package(
             name: "StartAppSDK",
             url: "https://github.com/nauhcx/StartAppSDK/releases/download/4.13.0/StartApp.xcframework.zip",
             checksum: "b7ee04e0a8a204ff9241f33989696dd85a2bb13aaf33cb53dbe9b6451cd05e35"
+        ),
+        .binaryTarget(
+            name: "BigoADSYandexMobileAdsAdapters",
+            url: "https://ads-mobile-sdk.s3.yandex.net/Yandex/BigoADSYandexMobileAdsAdapters/5.0.6.2/cocoapods/3c5bac13-35cc-43bd-8806-aef554f9b90b.zip",
+            checksum: "a16107c52106818d8e133aec98ce2fb46e0b1472800ccd33b8f4f65de07ed7cd"
+        ),
+        .binaryTarget(
+            name: "BigoADS",
+            url: "https://static-fed-oss.adsbigo.com/bigoads-framework/BigoADS_Spec_50006_69.zip",
+            checksum: "d5d1701dd4ee25443618ff52fe8b253118e22780e9ef533d40ca898e0a0cc516"
         ),
     ]
 )
