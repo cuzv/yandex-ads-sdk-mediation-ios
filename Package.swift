@@ -38,6 +38,26 @@ let package = Package(
             targets: ["DigitalTurbineYandexMobileAdsAdaptersWrapper"]
         ),
         .library(
+            name: "UnityAdsYandexMobileAdsAdapters",
+            targets: ["UnityAdsYandexMobileAdsAdaptersWrapper"]
+        ),
+        .library(
+            name: "IronSourceYandexMobileAdsAdapters",
+            targets: ["IronSourceYandexMobileAdsAdaptersWrapper"]
+        ),
+        .library(
+            name: "ChartboostYandexMobileAdsAdapters",
+            targets: ["ChartboostYandexMobileAdsAdaptersWrapper"]
+        ),
+        .library(
+            name: "InMobiYandexMobileAdsAdapters",
+            targets: ["InMobiYandexMobileAdsAdaptersWrapper"]
+        ),
+        .library(
+            name: "StartAppYandexMobileAdsAdaptersWrapper",
+            targets: ["StartAppYandexMobileAdsAdapters"]
+        ),
+        .library(
             name: "YandexMobileAdsMediation",
             targets: [
                 "YandexMobileAdsMediation",
@@ -46,7 +66,12 @@ let package = Package(
                 "AppLovinYandexMobileAdsAdaptersWrapper",
                 "MyTargetYandexMobileAdsAdaptersWrapper",
                 "MintegralYandexMobileAdsAdaptersWrapper",
-                "DigitalTurbineYandexMobileAdsAdaptersWrapper"
+                "DigitalTurbineYandexMobileAdsAdaptersWrapper",
+                "UnityAdsYandexMobileAdsAdaptersWrapper",
+                "IronSourceYandexMobileAdsAdaptersWrapper",
+                "ChartboostYandexMobileAdsAdaptersWrapper",
+                "InMobiYandexMobileAdsAdaptersWrapper",
+                "StartAppYandexMobileAdsAdaptersWrapper",
             ]
         )
     ],
@@ -116,6 +141,46 @@ let package = Package(
                 .product(name: "YandexMobileAds", package: "yandex-ads-sdk-ios"),
             ]
         ),
+        .target(
+            name: "UnityAdsYandexMobileAdsAdaptersWrapper",
+            dependencies: [
+                .target(name: "UnityAds"),
+                .target(name: "UnityAdsYandexMobileAdsAdapters"),
+                .product(name: "YandexMobileAds", package: "yandex-ads-sdk-ios"),
+            ]
+        ),
+        .target(
+            name: "IronSourceYandexMobileAdsAdaptersWrapper",
+            dependencies: [
+                .target(name: "IronSource"),
+                .target(name: "IronSourceYandexMobileAdsAdapters"),
+                .product(name: "YandexMobileAds", package: "yandex-ads-sdk-ios"),
+            ]
+        ),
+        .target(
+            name: "ChartboostYandexMobileAdsAdaptersWrapper",
+            dependencies: [
+                .target(name: "ChartboostSDK"),
+                .target(name: "ChartboostYandexMobileAdsAdapters"),
+                .product(name: "YandexMobileAds", package: "yandex-ads-sdk-ios"),
+            ]
+        ),
+        .target(
+            name: "InMobiYandexMobileAdsAdaptersWrapper",
+            dependencies: [
+                .target(name: "InMobiSDK"),
+                .target(name: "InMobiYandexMobileAdsAdapters"),
+                .product(name: "YandexMobileAds", package: "yandex-ads-sdk-ios"),
+            ]
+        ),
+        .target(
+            name: "StartAppYandexMobileAdsAdaptersWrapper",
+            dependencies: [
+                .target(name: "StartAppSDK"),
+                .target(name: "StartAppYandexMobileAdsAdapters"),
+                .product(name: "YandexMobileAds", package: "yandex-ads-sdk-ios"),
+            ]
+        ),
         .binaryTarget(
             name: "YandexMobileAdsAdMobAdapters",
             url: "https://ads-mobile-sdk.s3.yandex.net/Yandex/YandexMobileAdsAdMobAdapters/8.2.0.0/spm/296b22ec-89e6-41ed-a1d5-8c7fa14b824c.zip",
@@ -155,6 +220,56 @@ let package = Package(
             name: "YandexMobileAdsMediation",
             url: "https://ads-mobile-sdk.s3.yandex.net/Yandex/YandexMobileAdsMediation/8.2.0/spm/e070c4b5-5227-42ec-89ce-35be5f9310b9.zip",
             checksum: "b5d4b5567d07ad77cb2be68ebde70a1986ff749cb177d2ae954c0a3d113f7fff"
-        )
+        ),
+        .binaryTarget(
+            name: "UnityAdsYandexMobileAdsAdapters",
+            url: "https://ads-mobile-sdk.s3.yandex.net/Yandex/UnityAdsYandexMobileAdsAdapters/4.16.6.2/cocoapods/ea193220-68cc-47ba-9986-bcfd66ba77ed.zip",
+            checksum: "a6c00adb4e2bcd965792d39ba7abf851c36f77a450ed375bc4dc5bb62de1cd28"
+        ),
+        .binaryTarget(
+            name: "UnityAds",
+            url: "https://github.com/Unity-Technologies/unity-ads-ios/releases/download/4.16.6/UnityAds.zip",
+            checksum: "f844ff77d03e07a196557e62cd5f0a46df04bc5029db12dcc63be90f28192e45"
+        ),
+        .binaryTarget(
+            name: "IronSourceYandexMobileAdsAdapters",
+            url: "https://ads-mobile-sdk.s3.yandex.net/Yandex/IronSourceYandexMobileAdsAdapters/9.3.0.2/cocoapods/9a050745-8595-4229-b8f2-9883380d5725.zip",
+            checksum: "e99e3a85113b5832691288daf4ce69ef0270b12164624701ead38c57bf149e52"
+        ),
+        .binaryTarget(
+            name: "IronSource",
+            url: "https://github.com/ironsource-mobile/iOS-sdk/releases/download/IronSource_9.3.0/IronSource9.3.0.zip",
+            checksum: "a19ad3771ab8a92bbeca8d1c3a6f9126973d816f5fbb038043234574c81e9cbf"
+        ),
+        .binaryTarget(
+            name: "ChartboostYandexMobileAdsAdapters",
+            url: "https://ads-mobile-sdk.s3.yandex.net/Yandex/ChartboostYandexMobileAdsAdapters/9.11.0.2/cocoapods/e3d2b760-6cd6-45ac-81e4-5cbfef779d78.zip",
+            checksum: "653f2c7158550e6c43c90566b25d1a05fbc9f3ad2510d27d3890659db0b41912"
+        ),
+        .binaryTarget(
+            name: "ChartboostSDK",
+            url: "https://github.com/nauhcx/Chartboost/releases/download/9.11.0/ChartboostSDK.xcframework.zip",
+            checksum: "e315cc364549d129acf71ccf7b4d9a2acdd9e5567d7e0bab9852953a2295a8f7"
+        ),
+        .binaryTarget(
+            name: "InMobiYandexMobileAdsAdapters",
+            url: "https://ads-mobile-sdk.s3.yandex.net/Yandex/InMobiYandexMobileAdsAdapters/11.1.1.2/cocoapods/5a71973b-9542-473f-a35c-af4ef0a452fc.zip",
+            checksum: "2780e4c4a883089d8884a3f4e0201a55baa5ef9a2a386da326d68df9d56630e5"
+        ),
+        .binaryTarget(
+            name: "InMobiSDK",
+            url: "https://dl.inmobi.com/inmobi-sdk/IM/InMobi-iOS-SDK-11.1.1.zip",
+            checksum: "578dd32285cc8cea05e04ef3ffd03ccf0c93bc010d1e3abbed28690fe0dfffb2"
+        ),
+        .binaryTarget(
+            name: "StartAppYandexMobileAdsAdapters",
+            url: "https://ads-mobile-sdk.s3.yandex.net/Yandex/StartAppYandexMobileAdsAdapters/4.13.0.2/cocoapods/47b96d74-744f-4149-9321-80c556d5b420.zip",
+            checksum: "30ef5d67e8fa9cf2244d51a21e9b26296d246ca849f88da5ed50b3ebff41c7dc"
+        ),
+        .binaryTarget(
+            name: "StartAppSDK",
+            url: "https://github.com/nauhcx/StartAppSDK/releases/download/4.13.0/StartApp.xcframework.zip",
+            checksum: "b7ee04e0a8a204ff9241f33989696dd85a2bb13aaf33cb53dbe9b6451cd05e35"
+        ),
     ]
 )
