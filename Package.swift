@@ -192,7 +192,8 @@ let package = Package(
                 .target(name: "BigoADS"),
                 .target(name: "BigoADSYandexMobileAdsAdapters"),
                 .product(name: "YandexMobileAds", package: "yandex-ads-sdk-ios"),
-            ]
+            ],
+            resources: [.copy("Resources/BigoADSRes.bundle")]
         ),
         .binaryTarget(
             name: "YandexMobileAdsAdMobAdapters",
